@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Analysis Results - EcoSite</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body style="margin:0; font-family:'Montserrat', sans-serif; color:white; background:#1E3D2D; display:flex; flex-direction:column; min-height:100vh;">
+
+  <!-- Navbar -->
+  <!-- Paste navbar snippet here --><!-- Navbar -->
+<div style="position:sticky; top:0; background:#2E8B57; display:flex; align-items:center; justify-content:space-between; padding:10px 20px; z-index:100;">
+  <div style="display:flex; align-items:center;">
+    <img src="/static/logo.png" alt="Logo" style="height:40px; margin-right:10px;">
+    <span style="font-weight:700; font-size:24px;">EcoSite</span>
+  </div>
+  <div>
+    <a href="/" style="color:white; margin:0 10px; text-decoration:none;">Home</a>
+    <a href="/about" style="color:white; margin:0 10px; text-decoration:none;">About</a>
+    <a href="/analyze" style="color:white; margin:0 10px; text-decoration:none;">Analyze Location</a>
+  </div>
+</div>
+  <!-- Results Content -->
+  <div style="flex:1; display:flex; justify-content:center; align-items:center; padding:50px 20px;">
+    <div style="background:#ffffff; color:#2E8B57; max-width:600px; width:100%; padding:30px; border-radius:10px;">
+      <h1 style="text-align:center; margin-bottom:30px;">Location Analysis Results</h1>
+
+      <p><strong>Location Name:</strong> {{.Location}}</p>
+      <p><strong>Distance from Water:</strong> {{.WaterDist}} km {{if ge .WaterDist 1}}✅ Safe{{else}}⚠️ Risk{{end}}</p>
+      <p><strong>Distance from Forest:</strong> {{.ForestDist}} km {{if ge .ForestDist 2}}✅ Safe{{else}}⚠️ Moderate Risk{{end}}</p>
+      <p><strong>Distance from Residential Area:</strong> {{.ResidentialDist}} km {{if ge .ResidentialDist 3}}✅ Safe{{else}}⚠️ Risk{{end}}</p>
+      <p><strong>Environmental Suitability Score:</strong> {{.Score}} / 100</p>
+      <p style="font-weight:bold; font-size:20px; margin-top:20px;">Recommendation: {{.Recommendation}}</p>
+
+      <div style="text-align:center; margin-top:30px;">
+        <a href="/analyze" style="background:#2E8B57; color:white; padding:12px 25px; text-decoration:none; font-weight:bold; border-radius:5px;">Analyze Another Location</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div style="background:#2E8B57; padding:20px; text-align:center;">
+    <p>© 2026 EcoSite | Promoting Sustainable Industrial Development</p>
+  </div>
+</body>
+</html>
